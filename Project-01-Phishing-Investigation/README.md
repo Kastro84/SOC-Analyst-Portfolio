@@ -55,3 +55,8 @@ Confirming user interaction and sign-in activity is important before taking disr
 Clear communication with users helps prevent repeat incidents
 No further action was required beyond user awareness and monitoring
 ## Notes / Lessons Learned
+Reviewing phishing alerts quickly helps reduce the risk of credential compromise
+
+Confirming user interaction and sign-in activity is important before taking disruptive actions
+
+Clear communication with users helps prevent repeat incidents
