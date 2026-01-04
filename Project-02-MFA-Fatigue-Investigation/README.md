@@ -7,7 +7,7 @@ Multiple authentication prompts were generated for a user account within a short
 
 
 ## Alert / Detection Trigger
-
+The review was initiated after a pattern of repeated authentication attempts was observed for a single user account within a short timeframe. The frequency and timing of the sign-in activity were inconsistent with typical user behaviour, prompting further investigation to assess the risk of MFA fatigue or unauthorized access.
 
 ## Initial Triage – Authentication Review
 
