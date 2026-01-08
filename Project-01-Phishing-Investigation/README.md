@@ -3,8 +3,6 @@
 ## Scenario Overview
 A phishing email targeting a user mailbox was reviewed during a SOC-style investigation. The email impersonated a legitimate service and included a link intended to capture user credentials. The investigation focused on whether the user interacted with the email and whether any suspicious sign-in activity followed.
 
-## Evidence Collected (Screenshots)
-
 ## Alert / Detection Trigger
 The investigation started after a phishing alert was raised for an email containing a suspicious sender domain and embedded link. The alert required review to assess whether the email posed a risk to the user account.
 
