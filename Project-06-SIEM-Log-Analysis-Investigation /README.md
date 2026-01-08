@@ -1,21 +1,33 @@
 ## Incident Summary
-A security event was reviewed to investigate suspicious sign-in activity using log data. The aim of the investigation was to understand what caused the alert and determine whether the activity suggested unauthorised access or normal user behaviour.
+A security event was reviewed following the identification of suspicious authentication behaviour within Microsoft Sentinel. The investigation focused on analysing sign-in activity to determine whether the observed behaviour indicated unauthorised access or aligned with normal user behaviour.
+
+The objective was to understand what triggered the alert, assess the associated risk, and decide whether escalation or remediation actions were required.
+
 ## Detection / Alert Trigger
-The investigation was triggered after authentication logs showed unusual sign-in behaviour. This included multiple failed login attempts followed by a successful sign-in, which can sometimes indicate password guessing or compromised credentials and therefore required further review.
+The investigation was initiated after Microsoft Sentinel highlighted a sign-in pattern involving multiple failed authentication attempts followed by a successful login for the same user account within a short period of time. This pattern can sometimes be associated with password guessing or compromised credentials and therefore required further review.
+
 ## Scope of Investigation
-The investigation focused solely on authentication and sign-in related log data. The review was limited to information visible within the SIEM, including sign-in attempts, success and failure results, timestamps, IP addresses, and location details. No endpoint, email, or mailbox data was included.
+The investigation was limited to authentication-related telemetry ingested into Microsoft Sentinel. Analysis focused exclusively on identity sign-in events, including authentication outcomes, timestamps, source IP addresses, and location context. No endpoint, email, or mailbox data was included as part of this investigation.
+
 ## Log Source Overview
-The analysis used sign-in logs commonly ingested into a SIEM. These logs provided visibility into login attempts, authentication outcomes, source IP addresses, locations, and event timing. This data was used to build context around the alert and understand the user’s sign-in behaviour.
+The analysis was based on identity authentication logs commonly ingested into Microsoft Sentinel through Azure Monitor and Log Analytics. These logs provide visibility into user sign-in behaviour, including success and failure results, originating IP addresses, geographic information, and event timing. This telemetry forms the primary data source for authentication investigations within Sentinel.
+
 ## Initial Log Review
-Sign-in logs were reviewed to identify patterns such as repeated failed authentication attempts, successful sign-ins shortly after failures, access outside normal hours, or sign-ins from unfamiliar locations. Particular attention was given to whether the activity could indicate credential misuse rather than user error.
+An initial review of sign-in events was performed to identify patterns that could indicate suspicious behaviour. The review focused on identifying repeated failed authentication attempts, successful sign-ins occurring shortly after failures, and any indications of access from unfamiliar locations or IP addresses. The aim at this stage was to determine whether the activity was more consistent with credential misuse or typical user behaviour such as mistyped passwords.
+
 ## SIEM Analysis and Correlation
-Multiple log fields were reviewed together to better understand the activity. This included correlating timestamps, IP addresses, locations, authentication methods, and sign-in outcomes across events. Reviewing these details together helped determine whether the activity was isolated or potentially suspicious.
+Further analysis was conducted by correlating multiple log attributes within Microsoft Sentinel. Sign-in events were reviewed together to assess the relationship between timestamps, IP addresses, locations, and authentication outcomes across the activity window. Correlating these fields helped determine whether the behaviour was isolated or suggestive of unauthorised access attempts.
+
+This correlation approach allowed the investigation to move beyond individual events and assess the overall sign-in pattern in context.
+
 ## Investigation Findings
-The log review identified activity that justified investigation, but there was not enough evidence to confirm unauthorised access. The successful sign-in appeared consistent with the user’s normal behaviour, and no additional suspicious events were identified during the review period.
+The investigation identified activity that warranted review; however, there was insufficient evidence to confirm unauthorised access. The successful sign-in aligned with expected location and access patterns for the user, and no additional suspicious authentication activity was observed during the review period. There were no indicators of abnormal locations, unfamiliar IP addresses, or escalation in sign-in behaviour following the successful authentication.
+
 ## Analyst Decision and Outcome
-Based on the findings, no immediate response actions were required. The activity was assessed as low concern, and continued monitoring was recommended rather than escalation.
+Based on the findings, no immediate response actions were required. The activity was assessed as low risk, and escalation or remediation actions such as credential resets or account restrictions were not initiated. Continued monitoring was recommended to ensure visibility of any recurring authentication anomalies.
+
 ## Incident Closure
-The incident was closed after completing log review and correlation. No further action was required, with monitoring in place to detect any similar behaviour in the future.
+The incident was closed after completing log review and correlation within Microsoft Sentinel. No further action was required beyond standard monitoring for similar authentication patterns in the future.
+
 ## Lessons Learned
-Sign-in patterns involving repeated failures followed by a successful login should always be reviewed. Correlating multiple log fields helps distinguish between normal user behaviour and potential security issues, reducing unnecessary escalation while maintaining visibility of risk.
-## Evidence Collected (Screenshots)
+Authentication patterns involving repeated failures followed by a successful login should always be reviewed in context. Microsoft Sentinel enables effective investigation by allowing analysts to correlate multiple authentication attributes, helping distinguish between normal user behaviour and potential security threats without unnecessary escalation.
